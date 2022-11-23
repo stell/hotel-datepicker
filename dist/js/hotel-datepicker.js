@@ -24,6 +24,7 @@ var HotelDatepicker = (function (fecha) {
     let idCounter = 0;
     class HotelDatepicker {
       constructor(input, options) {
+        console.log('dfa');
         this._boundedEventHandlers = {};
         this.id = HotelDatepicker.getNewId();
 
@@ -36,6 +37,7 @@ var HotelDatepicker = (function (fecha) {
         this.startOfWeek = opts.startOfWeek || "sunday"; // Or monday
         this.startDate = opts.startDate || new Date();
         this.endDate = opts.endDate || false;
+        this.numberMonths = opts.numberMonths || 2;
         this.minNights = opts.minNights || 1;
         this.maxNights = opts.maxNights || 0;
         this.selectForward = opts.selectForward || false;
@@ -285,6 +287,8 @@ var HotelDatepicker = (function (fecha) {
         // Show months
         this.showMonth(defaultTime, 1);
         this.showMonth(this.getNextMonth(defaultTime), 2);
+        this.showMonth(this.getNextMonth(defaultTime), 3);
+        this.showMonth(this.getNextMonth(defaultTime), 4);
         this.setDayIndexes();
 
         // Print default info in top bar
@@ -450,7 +454,7 @@ var HotelDatepicker = (function (fecha) {
         html += '<div class="datepicker__months" role="application" aria-roledescription="datepicker" aria-label="' + this.i18n["aria-application"] + '">';
 
         // Print single months
-        for (let i = 1; i <= 2; i++) {
+        for (let i = 1; i <= this.numberMonths; i++) {
           html += '<table role="presentation" id="' + this.getMonthTableId(i) + '" class="datepicker__month datepicker__month--month' + i + '"><thead><tr class="datepicker__month-caption"><th><span  role="button" tabindex="0" aria-label="' + this.i18n["aria-prev-month"] + '" class="datepicker__month-button datepicker__month-button--prev" month="' + i + '">&lt;</span></th><th colspan="5" class="datepicker__month-name"></th><th><span role="button" tabindex="0" aria-label="' + this.i18n["aria-next-month"] + '" class="datepicker__month-button datepicker__month-button--next" month="' + i + '">&gt;</span></th></tr><tr class="datepicker__week-days"  aria-hidden="true" role="presentation">' + this.getWeekDayNames(i) + "</tr></thead><tbody></tbody></table>";
         }
         html += "</div>";

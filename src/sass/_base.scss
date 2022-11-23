@@ -6,20 +6,20 @@
     box-sizing: border-box;
     overflow: hidden;
     position: absolute;
-    width: 260px;
+    // width: 260px;
     z-index: 1;
 
-    @include mq_s {
-        width: 300px;
-    }
+    // @include mq_s {
+    //     width: 300px;
+    // }
 
-    @include mq_m {
-        width: 460px;
-    }
+    // @include mq_m {
+    //     width: 460px;
+    // }
 
-    @include mq_l {
-        width: 560px;
-    }
+    // @include mq_l {
+    //     width: 560px;
+    // }
 
     &--inline {
         position: relative;
@@ -31,9 +31,17 @@
 }
 
 .datepicker__months {
-    @include mq_m {
-        overflow: hidden;
-    }
+    display: grid;
+    grid-template-columns: min-content min-content min-content min-content;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . . .";
+
+
+    // @include mq_m {
+    //     overflow: hidden;
+    // }
 }
 
 .datepicker__month {

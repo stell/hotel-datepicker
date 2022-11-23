@@ -8,6 +8,7 @@ let idCounter = 0;
 
 export default class HotelDatepicker {
     constructor(input, options) {
+        console.log('dfa');
         this._boundedEventHandlers = {};
         this.id = HotelDatepicker.getNewId();
 
@@ -21,6 +22,7 @@ export default class HotelDatepicker {
         this.startOfWeek = opts.startOfWeek || "sunday"; // Or monday
         this.startDate = opts.startDate || new Date();
         this.endDate = opts.endDate || false;
+        this.numberMonths = opts.numberMonths || 2;
         this.minNights = opts.minNights || 1;
         this.maxNights = opts.maxNights || 0;
         this.selectForward = opts.selectForward || false;
@@ -362,6 +364,8 @@ export default class HotelDatepicker {
         // Show months
         this.showMonth(defaultTime, 1);
         this.showMonth(this.getNextMonth(defaultTime), 2);
+        this.showMonth(this.getNextMonth(defaultTime), 3);
+        this.showMonth(this.getNextMonth(defaultTime), 4);
         this.setDayIndexes();
 
         // Print default info in top bar
@@ -628,7 +632,7 @@ export default class HotelDatepicker {
             '">';
 
         // Print single months
-        for (let i = 1; i <= 2; i++) {
+        for (let i = 1; i <= this.numberMonths; i++) {
             html +=
                 '<table role="presentation" id="' +
                 this.getMonthTableId(i) +
