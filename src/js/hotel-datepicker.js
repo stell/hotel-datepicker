@@ -171,7 +171,7 @@ export default class HotelDatepicker {
             const handlers = this._boundedEventHandlers[node];
             if (event in handlers) {
                 const eventHandlers = handlers[event];
-                for (let i = eventHandlers.length; i--; ) {
+                for (let i = eventHandlers.length; i--;) {
                     const handler = eventHandlers[i];
                     node.removeEventListener(event, handler[0], handler[1]);
                 }
@@ -1312,7 +1312,7 @@ export default class HotelDatepicker {
                 (this.start &&
                     !this.end &&
                     this.getDateString(this.start, "YYYY-MM-DD") ===
-                        this.getDateString(time, "YYYY-MM-DD"))
+                    this.getDateString(time, "YYYY-MM-DD"))
             ) {
                 this.addClass(days[i], "datepicker__month-day--selected");
             } else {
@@ -1323,7 +1323,7 @@ export default class HotelDatepicker {
             if (
                 this.start &&
                 this.getDateString(this.start, "YYYY-MM-DD") ===
-                    this.getDateString(time, "YYYY-MM-DD")
+                this.getDateString(time, "YYYY-MM-DD")
             ) {
                 this.addClass(
                     days[i],
@@ -1340,7 +1340,7 @@ export default class HotelDatepicker {
             if (
                 this.end &&
                 this.getDateString(this.end, "YYYY-MM-DD") ===
-                    this.getDateString(time, "YYYY-MM-DD")
+                this.getDateString(time, "YYYY-MM-DD")
             ) {
                 this.addClass(
                     days[i],
@@ -1647,8 +1647,8 @@ export default class HotelDatepicker {
         const numberOfDays = this.countDays(this.end, this.start);
         const bar = this.showTopbar
             ? this.datepicker.getElementsByClassName(
-                  "datepicker__info--feedback"
-              )[0]
+                "datepicker__info--feedback"
+            )[0]
             : false;
 
         if (this.maxDays && numberOfDays > this.maxDays) {
@@ -1885,7 +1885,7 @@ export default class HotelDatepicker {
         if (
             (this.startDate &&
                 new Date(_m.getFullYear(), _m.getMonth() + 1, 0, 23, 59, 59) <
-                    this.startDate) ||
+                this.startDate) ||
             (this.endDate &&
                 new Date(_m.getFullYear(), _m.getMonth(), 1) > this.endDate)
         ) {
@@ -2495,7 +2495,7 @@ export default class HotelDatepicker {
             element.style.height =
                 element.style.transition =
                 element.style.display =
-                    "";
+                "";
         });
     }
 
@@ -2737,16 +2737,16 @@ export default class HotelDatepicker {
                         if ($direction === "down") {
                             nextDay = month[0].querySelectorAll(
                                 '.datepicker__month-day--visibleMonth[d="' +
-                                    currentWeekdayIndex +
-                                    '"]'
+                                currentWeekdayIndex +
+                                '"]'
                             );
                         } else if ($direction === "last") {
                             const nextWeekdayIndex =
                                 currentWeekdayIndex + (7 - currentWeekdayIndex);
                             nextDay = month[0].querySelectorAll(
                                 '.datepicker__month-day--visibleMonth[d="' +
-                                    nextWeekdayIndex +
-                                    '"]'
+                                nextWeekdayIndex +
+                                '"]'
                             );
                         } else {
                             nextDay = month[0].querySelectorAll(
@@ -2771,8 +2771,8 @@ export default class HotelDatepicker {
                         if ($direction === "up") {
                             prevDay = month[0].querySelectorAll(
                                 '.datepicker__month-day--visibleMonth[d="' +
-                                    currentWeekdayIndex +
-                                    '"]'
+                                currentWeekdayIndex +
+                                '"]'
                             );
                         } else if ($direction === "first") {
                             const prevWeekdayIndex =
@@ -2780,8 +2780,8 @@ export default class HotelDatepicker {
 
                             prevDay = month[0].querySelectorAll(
                                 '.datepicker__month-day--visibleMonth[d="' +
-                                    prevWeekdayIndex +
-                                    '"]'
+                                prevWeekdayIndex +
+                                '"]'
                             );
                         } else {
                             prevDay = month[0].querySelectorAll(
